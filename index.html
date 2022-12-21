@@ -93,17 +93,18 @@
 		
 			main{background:url("images/back.jpg") center/ cover; font-family:"ChosunGs"; position:relative; overflow:hidden; /*margin-top:90px;*/ width:1900px; padding-right:30px;}
 		 
-			#m1{display:flex; border:0px solid red; }
-			#m1 p{font-family:"ChosunGs"; margin:80px 50px 0 110px; font-size:23pt; background:url("images/cloud2.png")no-repeat right 0px/contain; padding:15px 0;}
+			#m1{display:flex; border:0px solid red;  align-items:center; margin-left:700px; margin-top:30px;}
+			#m1 p{font-family:"ChosunGs"; margin:50px 50px 0 110px; font-size:23pt; background:url("images/cloud2.png")no-repeat left 0px/contain; padding:15px 20px; }
 			#m1 p::first-letter {font-size:26pt; font-weight:bold; color:#503424;}
-			#m1 img{width:180px; margin-top:60px; animation:toLeft 10s infinite linear; transform:translateX(-50px);}
+			/*#bird{width:180px; margin-top:60px; animation:toLeft 10s infinite linear; transform:translateX(-50px);}
 			@keyframes toLeft{
-			0%{transform:translate(800px, -10px);}
-			25%{transform:translate(250px, 50px);}
-			50%{transform:translate(-350px, -10px);}
-			75%{transform:translate(-900px, 50px);}
-			100%{transform:translate(-1400px, -10px);}
-			}
+			0%{transform:translate(200px, -10px);}
+			25%{transform:translate(-350px, 50px);}
+			50%{transform:translate(-900px, -10px);}
+			75%{transform:translate(-1450px, 50px);}
+			100%{transform:translate(-2000px, -10px);}
+			}*/
+			#m1 img:last-child{ margin-top:30px;}
 			
 			#photo {width:10000px; display:flex; left:-4000px; position:relative;}
 			#photo img{width:2000px;}
@@ -115,7 +116,7 @@
 			#notice h3 {flex:0.7; border:0px solid red; }
 			
 			#notice p{border:0px solid red;  }
-			#notice>img {margin-left:100px; margin-top:50px; border:0px solid red;}
+			#notice>img {margin-left:100px; margin-top:50px; border:0px solid red; opacity:0.7;}
 			
 			#event {margin-bottom:50px;}
 			#event h3{border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
@@ -196,10 +197,13 @@
 						<img src="images/main_photo5.jpg" alt="숭례문사진5">
 				</div>
 				<div id="m1">
+					<!-- <img src="images/bird.png" alt="학" id="bird"> -->
 					<p>
 					 숭례문은 대한민국의 국보 1호로 지정된 우리나라 문화유산입니다.
 					</p>
-					<img src="images/bird.png" alt="학">
+					
+					<img src="images/chinese_stamp1.png" alt="한자">
+					
 				</div>
 				<div id="divide">
 					<section id="notice">
@@ -231,7 +235,7 @@
 								◈참여방법: 현장참여, 무료, 예약없음. <br>
 								◈집합장소: 숭례문 정문 종합 안내판</p>
 								<img src="images/popup_photo.jpg" alt="숭례문 팝업사진">
-								<!-- <button type="button">▲up</button> -->
+							
 						</div>
 						
 					</section>
@@ -242,7 +246,7 @@
 								<a href="#"><img src="images/pic1_big.jpg" alt="숭례문사진1"></a>
 							</div>
 							<div id="small">
-								<button type="button" class="active"><img src="images/pic1_small.jpg" alt="숭례문사진1"></button>
+								<button type="button" ><img src="images/pic1_small.jpg" alt="숭례문사진1"></button>
 								<button type="button"><img src="images/pic2_small.jpg" alt="숭례문사진2"></button>
 								<button type="button"><img src="images/pic3_small.jpg" alt="숭례문사진3"></button>
 								<button type="button"><img src="images/pic4_small.jpg" alt="숭례문사진4"></button>
