@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>숭례문</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#details li>a").on("mouseenter click", function(){
+					$("#details li>nav").stop().slideUp();
+					$(this).next().stop().slideDown();
+			});
+			$("#details nav").mouseleave(function(){
+				$(this).slideUp();
+			});
+	
+			
+			$(".menu").click(function(){
+			 $("header div").fadeIn();
+			 $("#details").stop().animate({left:"140px"},800);
+			 $("body").css("overflow","hidden");
+			});
+			
+			$("#details button").click(function(){
+				$("header div").fadeOut();
+				$("#details").stop().animate({left:"800px"},1000);
+				$("body").css("overflow","auto");
+			});
+			
+			setInterval(leftMove,4000);
+			function leftMove(){
+			$("#photo").stop().animate({left:"-4000px"}, 2000,function(){$(this).append($(this).children().first());
+			$(this).css("left","-2000px");
+			}); }
+			
+			
+			$('#n1 span').click(function(){
+				if( $(this).text() == 'keyboard_arrow_down' ){
+					 $("#popup").stop().slideDown();
+					$(this).text('keyboard_arrow_up');
+					//$("body").css('overflow','hidden');
+				} else {
+					 $("#popup").stop().slideUp();
+					$(this).text('keyboard_arrow_down');
+					//$("body").css('overflow','auto');
+				}		
+			});
+			
+			
+			$("#small button").click( function(){
+			const x = $(this).children().attr("src");
+		
+			const z1 = $("#big img").attr("src");
+			const z2 = $("#big img").attr("alt");
+			
+			const z11 = x.replace("_small.", "_big.");
+			
+			$("#big img").attr("src", z11);
+			
+	});
+			
+			});///////end	
+		</script>
+		<style>
+			* {margin:0; padding:0; box-sizing:border-box;}
+			@font-face {
+							font-family: 'ChosunGs';
+							src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+							font-weight: normal;
+							font-style: normal;
+						}
+			html, body{font:16pt/120% 'Nanum Gothic', sans-serif;  background:#eacda5; margin:auto}
+			img{max-width:100%;}
+			a{text-decoration:none; color:black;}
+			#layout{margin:auto; position:relative; overflow:hidden;}
+			
+			header{background:url("images/1page_upside.png")no-repeat center top/cover; width:100%; height:90px; display:flex; z-index:1;}
+			header h1{display:none;}
+			#details { color:white; font-family:"ChosunGs"; width:2000px; height:1580px;}
+			#details ul{list-style:none; width:1200px; padding:0 10px; margin-left:470px;  position:absolute; display:flex;  z-index:1;}
+			#details	li {flex:1;}
+			#details	li>a{display:block; padding:40px 20px 23px 30px; font-size:17pt;}
+			#details a {color:white; display:block;}
+			#details nav {background:#1c3a25;  font-size:13pt; display:none; }
+			#details nav a{color:#ffc554; display:block;  padding:20px 13px; }
+			#details nav a:not(:last-child){border-bottom:1px dotted #337247;}
+			#details li b {margin-bottom:15px; font-size:1rem; font-family: 'Nanum Gothic';}
+			#details>img {width:650px; opacity:0.3;}
+			#details>img:last-of-type{}
+			.flower{position:absolute; margin-left:300px; margin-top:15px; }
+		
+			main{background:url("images/back.jpg") center/ cover; font-family:"ChosunGs"; position:relative; overflow:hidden; /*margin-top:90px;*/ width:1900px; padding-right:30px;}
+		 
+			#m1{display:flex; border:0px solid red; }
+			#m1 p{font-family:"ChosunGs"; margin:80px 50px 0 110px; font-size:23pt; background:url("images/cloud2.png")no-repeat right 0px/contain; padding:15px 0;}
+			#m1 p::first-letter {font-size:26pt; font-weight:bold; color:#503424;}
+			#m1 img{width:180px; margin-top:60px; animation:toLeft 10s infinite linear; transform:translateX(-50px);}
+			@keyframes toLeft{
+			0%{transform:translate(800px, -10px);}
+			25%{transform:translate(250px, 50px);}
+			50%{transform:translate(-350px, -10px);}
+			75%{transform:translate(-900px, 50px);}
+			100%{transform:translate(-1400px, -10px);}
+			}
+			
+			#photo {width:10000px; display:flex; left:-4000px; position:relative;}
+			#photo img{width:2000px;}
+
+			#divide {display:flex; padding:80px 20px 80px 80px; height:800px;}
+			#divide h3::before{content:url("images/bullet.png"); margin-right:10px;}
+			
+			#notice{ flex:1; margin:auto; margin:0px 20px 0px 0px; background:url("images/notice_bg1.png");  padding:0px 60px 0 0px; position:relative;}
+			#notice h3 {flex:0.7; border:0px solid red; }
+			
+			#notice p{border:0px solid red;  }
+			#notice>img {margin-left:100px; margin-top:50px; border:0px solid red;}
+			
+			#event {margin-bottom:50px;}
+			#event h3{border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
+			#event p{padding:15px 0 20px 20px; }
+			#event img{float:right; width:150px; margin:15px 20px 5px 20px; transition:0.6s; border:5px solid #503424; }
+			#event img:hover{transform:translate(-50px, 30px) scale(3);}
+			
+			
+			#n1{border-bottom:1px solid #a27b38; display:flex; padding-bottom:10px; align-items:center; padding-left:20px;}
+			#n1 span{font-size:30pt;  border:0px solid red; display:inline-block; padding:0;}
+			
+			#popup {position:absolute;  top:320px; left:5px; width:100%; height:100%; display:none;background:url("images/notice_popup_bg.jpg") no-repeat center/cover; margin-top:20px; width:830px;  height:399px;  margin:auto; padding:55px 30px 0 70px; font-family:"ChosunGs"; font-size:13pt; line-height:120%; border:0px solid red; z-index:1;}
+			#popup img{width:200px; margin-right:20px; float:right; transform:translateY(-110px);}
+			#popup button{ border:none; background:none; color:white;  border-radius:50px; background:#704724;  font-size:0.8rem;  font-weight:bold; float:right; position:absolute;  top:750px; left:540px; padding:4px 8px; }
+			
+			#gallery{ flex:1; }
+			#gallery h3 {border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
+			#big img {width:700px; margin-left:70px; margin-top:30px;}
+			#small {margin-left:50px; margin-top:15px;}
+			#small img{width:175px;  }
+			#small button{border:1px solid #a27b38;}
+			.gogo{font-size:14pt;  float:right;  font-family:"ChosunGs"; color:#503424; border:0px solid red; margin-right:50px; margin-top:10px;}
+			
+			#floor{display:flex; align-items:center; margin:60px 30px 40px 30px; font-size:18pt; border-top:2px solid #a27b38;  padding:50px;  line-height:160%;}
+			#floor select{margin-left:880px; padding:6px 25px;  border-radius:5px;}
+			
+			#first img{position:absolute; opacity:0; top:2500px; animation-delay:2s; animation:fade 3s 1 linear; z-index:2; }
+				@keyframes fade{
+				0%{opacity:1; left:0; top:0;}
+				100%{opacity:0; transform:scale(2.5);  left:0; top:0;}
+				}
+		</style>
+	</head>
+	<body>
+		<div id="layout">
+			<header>
+				<h1>숭례문</h1>
+				<a href="index.html"><img src="images/flower_icon.png" alt="꽃문양" class="flower"></a>
+				<nav id="details">
+							<ul>
+								<li>
+									<a href="#">숭례문 이야기 <b>▼</b></a>
+									<nav>
+										<a href="menu1_1.html">숭례문 역사</a>
+										<a href="menu1_2.html">사진으로 보는 숭례문 역사</a>
+										<a href="menu1_3.html">숭례문 사진 보기</a>
+									</nav>
+								</li>
+								
+								<li>
+									<a href="menu2.html">사대문 이야기</a>							
+								</li>
+								
+								<li>
+									<a href="#">숭례문 관광 <b>▼</b></a>
+									<nav>
+										<a href="menu3_1.html">행사 안내</a>
+										<a href="menu3_2.html">주변 관광 안내</a>
+									</nav>
+								</li>
+								
+								<li>
+									<a href="menu4.html">국보 이야기</a>
+								</li>
+								
+								<li>
+									<a href="menu5.html" class="last">오시는 길</a>
+								</li>
+							</ul>		
+						</nav>	
+			</header>
+			<main>
+				<div id="photo">
+						<img src="images/main_photo1.jpg" alt="숭례문사진1">
+						<img src="images/main_photo2.jpg" alt="숭례문사진2">
+						<img src="images/main_photo3.jpg" alt="숭례문사진3">
+						<img src="images/main_photo4.jpg" alt="숭례문사진4">
+						<img src="images/main_photo5.jpg" alt="숭례문사진5">
+				</div>
+				<div id="m1">
+					<p>
+					 숭례문은 대한민국의 국보 1호로 지정된 우리나라 문화유산입니다.
+					</p>
+					<img src="images/bird.png" alt="학">
+				</div>
+				<div id="divide">
+					<section id="notice">
+						<div id="event">
+							 <h3>행사 안내</h3>
+							 <img src="images/event02_01.jpg" alt="파수의식">
+							 <p>숭례문 파수의식은 조선시대 중요한 군례의식이었던 파수(도성 수비), <br>즉 도성문을 열고 닫는 개폐의식과 순라의식 등을 연결하는 의식을 재현하고 있는 행사입니다. <br><br>※ 연중상설 / 단, 월요일 및 혹서기/혹한기, 눈과 비 오는 날은 행사가 쉽니다.</p>
+						</div> 
+						<div id="n1">
+							<h3>공지사항</h3>
+							<p>4년 만에 다시 돌아온 ‘숭례문 역사 이야기’ 무료 해설</p>  <span class="material-symbols-rounded">keyboard_arrow_down</span>
+						</div>
+						<img src="images/painting1.png" alt="숭례문 그림">
+						<div id="popup">
+							
+							<p>등록일: 2022. 10. 20 <br> <br>
+
+								안녕하세요. <br>
+								10월 22일~11월 19일까지 매주 토요일마다  <br>
+								하루 두차례씩 숭례문에서 숭례문의 건축적인 아름다움과 의미를<br> 
+								해설사 설명을 들으며 관람할 수 있는 숭례문 무료 해설 프로그램을 진행합니다. <br> <br>
+
+								회당 35분 정도 소요되도록 구성했으며, 사전 예약 없이 현장에서 바로 참여할 수 있습니다. <br> <br>
+
+								감사합니다. <br><br>
+
+								◈운영시간: 14:00~14:35, 15:00~15:35 / &ensp; 회당 약 
+												   35분 소요 <br>
+								◈참여방법: 현장참여, 무료, 예약없음. <br>
+								◈집합장소: 숭례문 정문 종합 안내판</p>
+								<img src="images/popup_photo.jpg" alt="숭례문 팝업사진">
+								<!-- <button type="button">▲up</button> -->
+						</div>
+						
+					</section>
+					<section id="gallery">
+						<h3>이미지 갤러리</h3>
+						<div>
+							<div id="big">
+								<a href="#"><img src="images/pic1_big.jpg" alt="숭례문사진1"></a>
+							</div>
+							<div id="small">
+								<button type="button" class="active"><img src="images/pic1_small.jpg" alt="숭례문사진1"></button>
+								<button type="button"><img src="images/pic2_small.jpg" alt="숭례문사진2"></button>
+								<button type="button"><img src="images/pic3_small.jpg" alt="숭례문사진3"></button>
+								<button type="button"><img src="images/pic4_small.jpg" alt="숭례문사진4"></button>
+							</div>
+						<div>
+						<a href="menu1_3.html" class="gogo">숭례문 사진 더 보기 ▶</a>
+					</section>	
+				</div>
+		
+				<div id="floor">
+					<p>화요일 부터 일요일: 09:00 ~ 18:00 / 매주 월요일 휴무 <br>
+					주소: 서울특별시 중구 세종대로 40 <br>
+					전화: 02-779-8547</p>
+					<select onchange="if(this.value) {window.open(this.value)}">
+						<option value="#">다른 고궁 보러가기</option>
+						<option value="http://www.royalpalace.go.kr/" >경복궁</option>
+						<option value="http://www.deoksugung.go.kr/">덕수궁</option>
+						<option value="http://www.cdg.go.kr/">창덕궁</option>
+					</select>
+				</div>
+			</main>
+			<div id= "first">
+				<img src="images/1page_pic1.jpg" alt="숭례문 야경" >
+			</div>
+		</div>	
+	</body>
+</html>
