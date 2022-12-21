@@ -16,24 +16,29 @@
 				$(this).slideUp();
 			});
 	
-			
-			$(".menu").click(function(){
-			 $("header div").fadeIn();
-			 $("#details").stop().animate({left:"140px"},800);
-			 $("body").css("overflow","hidden");
-			});
-			
-			$("#details button").click(function(){
-				$("header div").fadeOut();
-				$("#details").stop().animate({left:"800px"},1000);
-				$("body").css("overflow","auto");
-			});
+		
 			
 			setInterval(leftMove,4000);
 			function leftMove(){
 			$("#photo").stop().animate({left:"-4000px"}, 2000,function(){$(this).append($(this).children().first());
 			$(this).css("left","-2000px");
 			}); }
+			
+			
+			
+			 $("#left").click(function(){
+				$("#m2 div").stop().animate({left:0},"fast",function(){
+				$(this).prepend($(this).children().last());
+				$(this).css("left","-1900px");
+						});
+				});
+			$("#right").click(function(){
+				$("#m2 div").stop().animate({left:"-3800px"},"fast",function(){
+				$(this).append($(this).children().first());
+				$(this).css("left","-1900px");
+						});
+				});
+			
 			
 			
 			$('#n1 span').click(function(){
@@ -93,7 +98,7 @@
 		
 			main{background:url("images/back.jpg") center/ cover; font-family:"ChosunGs"; position:relative; overflow:hidden; /*margin-top:90px;*/ width:1900px; padding-right:30px;}
 		 
-			#m1{display:flex; border:0px solid red;  align-items:center; margin-left:700px; margin-top:30px;}
+			#m1{display:flex; border:0px solid red;  align-items:center; margin-left:700px; margin-top:20px;}
 			#m1 p{font-family:"ChosunGs"; margin:50px 50px 0 110px; font-size:23pt; background:url("images/cloud2.png")no-repeat left 0px/contain; padding:15px 20px; }
 			#m1 p::first-letter {font-size:26pt; font-weight:bold; color:#503424;}
 			/*#bird{width:180px; margin-top:60px; animation:toLeft 10s infinite linear; transform:translateX(-50px);}
@@ -105,6 +110,15 @@
 			100%{transform:translate(-2000px, -10px);}
 			}*/
 			#m1 img:last-child{ margin-top:30px;}
+			
+			#m2 { padding:60px 0px 100px 0px; position:relative; border:0px solid red; margin-left:80px; margin-right:30px; height:270px; overflow:hidden;}
+			#m2 h3{border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px;  }
+			#m2 h3::before{content:url("images/bullet.png"); margin-right:10px;}
+			#m2 div {display:flex; position:absolute; left:-1900px;}
+			#m2 div p{padding:25px 135px 90px 100px; width:1900px; background:rgba(255,255,255,0.2);}
+			#m2 button{font-size:2.8rem; font-weight:bold;  color:#503424; opacity:0.7; position:absolute; border:none; background:none;  }
+			#left	{right:160px; top:50px; text-shadow:2px 2px 2px rgba(0,0,0,0.6);}
+			#right{right:70px; top:50px; text-shadow:2px 2px 2px rgba(0,0,0,0.6); }
 			
 			#photo {width:10000px; display:flex; left:-4000px; position:relative;}
 			#photo img{width:2000px;}
@@ -128,7 +142,7 @@
 			#n1{border-bottom:1px solid #a27b38; display:flex; padding-bottom:10px; align-items:center; padding-left:20px;}
 			#n1 span{font-size:30pt;  border:0px solid red; display:inline-block; padding:0;}
 			
-			#popup {position:absolute;  top:320px; left:5px; width:100%; height:100%; display:none;background:url("images/notice_popup_bg.jpg") no-repeat center/cover; margin-top:20px; width:830px;  height:399px;  margin:auto; padding:55px 30px 0 70px; font-family:"ChosunGs"; font-size:13pt; line-height:120%; border:0px solid red; z-index:1; box-shadow:3px 3px 5px rgba(0,0,0,0.6);}
+			#popup {position:absolute;  top:320px; left:5px; width:100%; height:100%; display:none;background:url("images/notice_popup_bg1.jpg") no-repeat center/cover; margin-top:20px; width:830px;  height:399px;  margin:auto; padding:55px 30px 0 70px; font-family:"ChosunGs"; font-size:13pt; line-height:120%; border:0px solid red; z-index:1; box-shadow:3px 3px 5px rgba(0,0,0,0.6);}
 			#popup img{width:200px; margin-right:20px; float:right; transform:translateY(-110px);}
 			#popup button{ border:none; background:none; color:white;  border-radius:50px; background:#704724;  font-size:0.8rem;  font-weight:bold; float:right; position:absolute;  top:750px; left:540px; padding:4px 8px; }
 			
@@ -202,8 +216,30 @@
 					 숭례문은 대한민국의 국보 1호로 지정된 우리나라 문화유산입니다.
 					</p>
 					
-					<img src="images/chinese_stamp1.png" alt="한자">
+					<img src="images/chinese_stamp1.png" alt="한자">	
+				</div>
+				<div id="m2">
+					<h3>숭례문 (崇禮門)</h3>
+					<div>
+							<p>
+							또한 숭례문은 성의 안팎을 연결하는 통로였다. <br>
+							단순한 통로 이상의 의미를 지니는데, 왕이 지나고 중국 사신들을 맞이하는 등 국가적 의례 시 통로로 대표성을 가지고 있었다. 숭례문은 다른 성곽 문에 비해 큰 규모를 갖는다.<br> 이는 숭례문이 도성의 문이기 때문인데, 임금의 행차에 따른 어도(御道)나 국가 의례 행차, 혹은 임금의 상(喪)때 대여(大輿)가 지나갈 수 있도록 폭과 높이를 갖추어야 했다.<br>
+							숭례문은 조선 도로망의 기점이기도 하였다. 특히 도성 내 주요대로 끝단에 위치하고 있던 숭례문은 전국으로 뻗는 도로망의 시작이었으며 도성으로 들어오는 관문이었던 것이다.
+						</p>
+						
+						<p>
+						 서울특별시 중구에 있는 조선전기에 축조된 서울도성의 성곽문. 국보.<br>
+						 숭례문은 일명 남대문(南大門)이라고도 하는데, 서울 도성의 사대문 가운데 남쪽에 있기 때문에 붙여진 이름이다. <br>1962년 12월 20일에 국보로 지정되었고, 문화재청 숭례문 관리소에서 관리하고 있다. <br>
+						 서울 숭례문은 1396년(태조 5) 축조된 서울도성의 정문으로, 1398년(태조 7) 2월에 준공되었다. 그 뒤 1448년(세종 29) 개수공사가 완료되었다.<br>
+						</p>
 					
+						<p>
+						 도성의 사대문 중 인왕산의 남쪽 기슭에서 남산의 북서쪽 기슭 사이에 자리 잡고 있는 것이 숭례문이다.<br>
+						 조선시대 한양 도성의 대문이었던 숭례문은 당시 방어적 성곽의 관문으로 군사적 방어로서의 일차적 기능이 있었다.<br> 숭례문은 성곽의 문이라는 그 군사적 기능에 충실하게 축조되었는데 화강암 석재로 6~7m의 높이로 육중하고 견고하게 육축을 쌓았을 뿐 아니라,<br> 출입문 또한 12cm의 두꺼운 판목에 철엽을 덧씌워 내화성을 보강하는 등 외적 방어의 기능을 잘 갖추고 있다.
+						</p>
+					</div>
+					<button type="button" id="left">&lt;</button>
+					<button type="button" id="right">&gt;</button>	
 				</div>
 				<div id="divide">
 					<section id="notice">
