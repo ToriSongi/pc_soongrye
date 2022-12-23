@@ -68,17 +68,21 @@
 			});
 			
 			
-			$("#map img").click(function(){
+			$("#map>img").click(function(){
 				const mp=$(this).index();
-				$("#gatepop div").eq(mp).children("img").fadeIn();
-				$("#gatepop div").eq(mp).children("p").stop().animate({left:"10px"},"slow");
-				$("#map").css({"filter":"blur(5px) sepia(100%)"});
+				$("#gatepop>div").eq(mp).children("img").fadeIn();
+				$("#gatepop>div").eq(mp).children("p").stop().animate({left:"10px"},"slow");
+				$("#map").css({"filter":" grayscale(100%) brightness(140%) opacity(0.4)"});
+				$("#map>img").prop("disabled", true);
+				
 			});
 			
-			$("#gatepop div").click(function(){
+			$("#gatepop>div").click(function(){
 				$(this).children("img").fadeOut();
 				$(this).children("p").animate({left:"-800px"},"fast");
-				$("#map").css({"filter":"blur(0px) sepia(0%)"});
+				$("#map").css({"filter":"sepia(0%)  brightness(100%) opacity(1)"});
+				$("#map>img").prop("disabled", false);
+			
 			});	
 			
 			setInterval(rightMove,3500);
@@ -86,6 +90,13 @@
 			$("#bus5>div").stop().animate({left:"-550px"},1500 ,function(){$(this).prepend($(this).children().last());
 			$(this).css("left","-1100px");
 			}); }
+			
+			setInterval(upMove,3500);
+			function upMove(){
+			$("#kt5>div").stop().animate({top:"-205px"},1500 ,function(){$(this).prepend($(this).children().last());
+			$(this).css("top","-455px");
+			}); }
+			//top:-455
 				
 			
 			
@@ -103,6 +114,7 @@
 			img{max-width:100%;}
 			a{text-decoration:none; color:black;}
 			#layout{width:1900px; margin:auto; position:relative; overflow:hidden;}
+			p{font-family: 'Gowun Dodum', sans-serif; font-weight:bold;}
 			
 			header{ }
 			header div{background:url("images/1page_upside.png")no-repeat center top/cover; width:1900px; height:90px; display:flex; z-index:2; /*position:fixed;*/}
@@ -120,10 +132,10 @@
 			#details>img:last-of-type{}
 			.flower{position:absolute; margin-left:300px; margin-top:15px; }
 		
-			main{background:url("images/back.jpg") center/ cover; font-family:"ChosunGs"; position:relative; overflow:hidden; /*margin-top:90px;*/ width:1900px; }
+			main{/*background:url("images/back.jpg") center/ cover;*/ font-family:"ChosunGs"; position:relative; overflow:hidden; /*margin-top:90px;*/ width:1900px;   }
 		 
-			#m1{display:flex; border:0px solid red;  align-items:center; margin-left:700px; margin-top:20px;}
-			#m1 p{font-family:"ChosunGs"; margin:50px 50px 0 110px; font-size:23pt; background:url("images/cloud2.png")no-repeat left 0px/contain; padding:15px 20px; }
+			#m1{display:flex; border:0px solid red;  align-items:center;  background:url("images/m1_bg3.png")no-repeat center/ cover; padding:30px 10px 60px 600px; margin-top:50px;}
+			#m1 p{font-family:"ChosunGs"; margin:50px 50px 0 110px; font-size:23pt; background:url("images/cloud4.png")no-repeat left 0px/contain; padding:15px 20px; }
 			#m1 p::first-letter {font-size:26pt; font-weight:bold; color:#503424;}
 		
 			#m1 img:last-child{ margin-top:30px;}
@@ -141,42 +153,53 @@
 			#photo {width:9500px; display:flex; left:-3800px; position:relative;}
 			#photo img{width:1900px;}
 
-			#divide {display:flex; padding:80px 50px 80px 80px; height:800px; margin-right:10px;}
+			#divide {display:flex; padding:80px 50px 80px 80px; height:800px; margin:50px 10px 80px 0;}
 			#divide h3::before{content:url("images/bullet.png"); margin-right:10px;}
 			
-			#notice{ flex:1; margin:auto; margin:0px 20px 0px 0px; background:url("images/notice_bg1.png");  padding:0px 60px 0 0px; position:relative;}
+			#notice{ flex:1; margin:auto; margin:0px 20px 0px 0px; /*background:url("images/notice_bg1.png");*/  padding:0px 60px 0 0px; position:relative;}
 			#notice h3 {flex:0.7; border:0px solid red; }
 			
 			#notice p{border:0px solid red;  }
-			#notice>img {margin-left:100px; margin-top:50px; border:0px solid red; opacity:0.7;}
+			#guide{padding:30px 40px;}
+			#guide img{margin-left:100px; margin-top:30px; border:0px solid red; width:650px; }
+			#guide p{margin-left:202px;}
 			
-			#event {margin-bottom:60px;}
+			#event {margin-bottom:90px;}
 			#event h3{border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
 			#event p{padding:15px 0 0px 20px; }
-			#event b{padding:0px 0 25px 20px; }
+			#event b{padding:0px 0 25px 20px; font-size:0.85rem; font-family: 'Gowun Dodum', sans-serif; }
 			#event img{float:right; width:170px; margin:15px 20px 5px 20px; transition:0.6s; /*border:5px solid #503424; */}
 			#event img:hover{transform:translate(-50px, 30px) scale(3);}
 			
 			
 			#n1{border-bottom:1px solid #a27b38; display:flex; padding-bottom:10px; align-items:center; padding-left:20px;}
 			#n1 span{font-size:30pt;  border:0px solid red; display:inline-block; padding:0;}
+			#n1 i{color:#9d2526; font-weight:bold;}
 			
-			#popup {position:absolute;  top:320px; left:5px; width:100%; height:100%; display:none; background:url("images/notice_popup_bg2.png") no-repeat center/cover; margin-top:20px; width:830px;  height:399px;  margin:auto; padding:55px 30px 0 70px; font-family:"ChosunGs"; font-size:13pt; line-height:120%; border:0px solid red; z-index:1; box-shadow:3px 3px 5px rgba(0,0,0,0.6);}
+			#popup {position:absolute;  top:320px; left:5px; width:100%; height:100%; display:none; background:url("images/notice_popup_bg.jpg") no-repeat center/cover; margin-top:20px; width:830px;  height:399px;  margin:auto; padding:55px 30px 0 70px; font-family:"ChosunGs"; font-size:13pt; line-height:120%; border:0px solid red; z-index:1; box-shadow:3px 3px 5px rgba(0,0,0,0.6);}
 			#popup img{width:200px; margin-right:20px; float:right; transform:translateY(-110px);}
 			#popup button{ border:none; background:none; color:white;  border-radius:50px; background:#704724;  font-size:0.8rem;  font-weight:bold; float:right; position:absolute;  top:750px; left:540px; padding:4px 8px; }
 			
 			#gallery{ flex:1; }
 			#gallery h3 {border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
-			#big img {width:700px; margin-left:70px; margin-top:30px;}
+			#big img {width:550px; margin-left:130px; margin-top:60px;}
 			#small {margin-left:50px; margin-top:15px;}
 			#small img{width:175px;  }
 			#small button{border:1px solid #a27b38;}
 			.gogo{font-size:14pt;  float:right;  font-family:"ChosunGs"; color:#503424; border:0px solid red; margin-right:50px; margin-top:10px;}
+			
+			
+			
+			#kt5{display:flex; align-items:center; position:relative; height:350px; margin:80px 0; background:url("images/m1_bg1.png")no-repeat center/ cover;  padding:10px 90px; overflow:hidden;}
+			#kt5>section{flex:1;}
+			#kt5>div{flex:0.7; height:1250px; position:absolute; top:-455px; left:1600px; }
+			#kt5>div>img{ width:185px;}
+			
 		
-			#sd3{display:flex; padding:80px 50px 80px 80px; margin-right:10px;}
+			#sd3{display:flex; padding:80px 50px 80px 80px; margin-right:10px; margin-bottom:90px;}
 		
-			#gate4 {flex:1; margin-right:45px; position:relative;}
-			#gate4 h3{border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
+			#gate4 {flex:1; margin-right:85px; position:relative;}
+			#gate4 h3{border-bottom:1px solid #a27b38;  padding:5px 20px 20px 20px; margin-bottom:50px; }
 			#gate4 h3::before{content:url("images/bullet.png"); margin-right:10px;}
 			
 			#map{width:750px; height:576px; background:url("images/seoulmap1.png"); margin-top:15px; position:relative;}
@@ -188,24 +211,34 @@
 			.s4{top:380px; left:315px;}
 			
 			#gatepop{overflow:hidden; }
-			#gatepop img{position:absolute; top:80px; left:60px; display:none;}
-			#gatepop p{font-size:12pt; position:absolute; top:150px; left:-800px; width:500px; z-index:1; background:linear-gradient(to right, transparent, rgba(181,149,115,0.9)); padding:10px 30px; border-radius:20px 90px 90px 20px; } 
+			#gatepop img{position:absolute; top:100px; left:60px; display:none;}
+			#gatepop p{font-size:12pt; position:absolute; top:170px; left:-800px; width:500px; z-index:1; background:url("images/paper.png"); padding:10px 30px; /*border-radius:20px 90px 90px 20px;*/  box-shadow:3px 3px 5px rgba(0,0,0,0.6);} 
 			#gatepop div{border:0px solid red;}
 			
-			#tour1{flex:1; position:relative; }
+			#tour1{flex:1; position:relative; border-bottom:4px solid white; background:url("images/rectangle.png")no-repeat 93px 122px/contain; border }
 			#tour1 h3{border-bottom:1px solid #a27b38;  padding:5px 0 20px 20px; }
 			#tour1 h3::before{content:url("images/bullet.png"); margin-right:10px;}
-			#tour1>div{/*background:url("images/tourbus.png")no-repeat top/contain; */ width:800px; height:1000px; margin-top:50px; }
-			#bus5{width:550px; height:800px; position:relative; margin-left:150px; overflow:hidden;}
+			
+			#tour1>p{background:url("images/course.png") no-repeat center; height:90px; }
+			#tour1>p>b{position:absolute; font-size:13pt; top:66px; left:150px; background:rgba(14, 14, 14,0.7); padding:5px 11px; color:white;}
+			#tour1>p>img {position:absolute; top:668px; left:0px; animation:busGo 8s infinite ease; width:160px;}
+			@keyframes busGo{
+			0%{left:670px;}
+			50%{left:0;}
+			100%{left:670px;}
+			}
+			
+			#tour1>div{ width:800px; height:560px; margin-top:50px; }
+			#bus5{width:550px; height:550px; position:relative; margin-left:150px; overflow:hidden; border:20px solid white; background:white; box-shadow:3px 3px 5px rgba(0,0,0,0.6);}
 			#bus5>div{position:absolute; width:2750px; display:flex; top:0px; left:-1100px;}
 			#bus5>div img{width:550px; }
 			#bus5>div>div>img{display:block;}
-			#bus5>div>div>p{padding:30px; font-size:13pt; border:1px solid black; height:170px; font-family: 'Gowun Dodum', sans-serif; font-weight:bold; background:rgba(255,255,255,0.2);}
+			#bus5>div>div>p{padding:30px; font-size:13pt; /*border:1px solid black;*/ height:170px; font-family: 'Gowun Dodum', sans-serif; font-weight:bold; background:rgba(255,255,255,0.2); }
 			#bus5>div>div b{font-size:16pt; padding-bottom:12px;}
-			.people{position:absolute; top:0px;}
+			.people{position:absolute; top:0px; left:10px; height:328px}
 			.enjoy{position:absolute; top:310px; left:380px; width:450px;}
 		
-			#floor{display:flex; align-items:center; margin:60px 0px 40px 0px; font-size:18pt; /*border-top:2px solid #a27b38;*/  padding:50px;  line-height:160%;  background:url("images/pattern_bg.png")no-repeat center/contain;}
+			#floor{display:flex; align-items:center; margin:60px 0px 40px 0px; font-size:18pt; /*border-top:2px solid #a27b38;*/ width:1900px; padding:50px 100px;  line-height:160%;  background:url("images/pattern_bg.png")no-repeat center/cover; height:200px;}
 			#floor select{margin-left:880px; padding:6px 25px;  border-radius:5px;}
 			
 			#first img{position:absolute; opacity:0; top:4500px; animation-delay:2s; animation:fade 3s 1 linear; z-index:2; }
@@ -263,13 +296,7 @@
 						<img src="images/main_photo4.jpg" alt="숭례문사진4">
 						<img src="images/main_photo5.jpg" alt="숭례문사진5">
 				</div>
-				<div id="m1">
-					<p>
-					 숭례문은 대한민국의 국보 1호로 지정된 우리나라 문화유산입니다.
-					</p>
-					
-					<img src="images/chinese_stamp1.png" alt="한자">	
-				</div>
+				
 				<div id="m2">
 					<h3>숭례문 (崇禮門)</h3>
 					<div>
@@ -293,18 +320,28 @@
 					<button type="button" id="left"><img src="images/left.png" alt="왼쪽버튼"></button>
 					<button type="button" id="right"><img src="images/right.png" alt="오른쪽버튼"></button>	
 				</div>
+				<div id="m1">
+					<p>
+					 숭례문은 대한민국의 국보 1호로 지정된 우리나라 문화유산입니다.
+					</p>
+					
+					<img src="images/chinese_stamp1.png" alt="한자">	
+				</div>
 				<div id="divide">
 					<section id="notice">
 						<div id="event">
 							 <h3>행사 안내</h3>
 							 <img src="images/event02_02.png" alt="파수의식">
-							 <p>숭례문 파수의식은 조선시대 중요한 군례의식이었던 파수(도성 수비), <br>즉 도성문을 열고 닫는 개폐의식과 순라의식 등을 연결하는 의식을 재현하고 있는 행사입니다. </p><br><b>※ 연중상설 / 단, 월요일 및 혹서기/혹한기, 눈과 비 오는 날은 행사가 쉽니다.</b>
+							 <p>숭례문 파수의식은 조선시대 중요한 군례의식이었던 파수(도성 수비), <br>즉 도성문을 열고 닫는 개폐의식과 순라의식 등을 연결하는 의식을 재현하고 있는 행사입니다. </p><b>※ 연중상설 / 단, 월요일 및 혹서기/혹한기, 눈과 비 오는 날은 행사가 쉽니다.</b>
 						</div> 
 						<div id="n1">
 							<h3>공지사항</h3>
-							<p>4년 만에 다시 돌아온 ‘숭례문 역사 이야기’ 무료 해설</p>  <span class="material-symbols-rounded">keyboard_arrow_down</span>
+							<p><i> new </i> &ensp; ◈ 4년 만에 다시 돌아온 ‘숭례문 역사 이야기’ 무료 해설</p>  <span class="material-symbols-rounded">keyboard_arrow_down</span>
 						</div>
-						<img src="images/painting1.png" alt="숭례문 그림">
+						<div id="guide">
+							<p>◈ 신한은행과 함께하는 숭례문 오디오 가이드 서비스</p>
+							<a href="https://www.beautifulshinhan.co.kr/servShcaInqyA010.do?mappingId=%2FservShcaInqyA010.do&genActiontypeCd=2ACT1010&genDoctreattypeCd=&genMenuId=menu_serv_serv_lawt_3050" target="_blank"><img src="images/banner.jpg" alt="숭례문오디오 가이드"></a>
+						</div>
 						<div id="popup">
 							
 							<p>등록일: 2022. 10. 20 <br> <br>
@@ -318,10 +355,10 @@
 
 								감사합니다. <br><br>
 
-								◈운영시간: 14:00~14:35, 15:00~15:35 / &ensp; 회당 약 
+								◈ 운영시간: 14:00~14:35, 15:00~15:35 / 회당 약 
 												   35분 소요 <br>
-								◈참여방법: 현장참여, 무료, 예약없음. <br>
-								◈집합장소: 숭례문 정문 종합 안내판</p>
+								◈ 참여방법: 현장참여, 무료, 예약없음. <br>
+								◈ 집합장소: 숭례문 정문 종합 안내판</p>
 								<img src="images/popup_photo.jpg" alt="숭례문 팝업사진">
 							
 						</div>
@@ -344,6 +381,19 @@
 					</section>	
 				</div>
 						
+				<div id="kt5">
+					<section>	
+						<h3>대한민국 국보</h3><br>
+						<p>한국에서는 건축물을 비롯한 유형 문화재 가운데 가치가 높은 문화 유산을 보물이라 하며, <br>이 보물 중에서 특히 역사적·학술적·예술적·기술적 가치가 크다고 인정 받은 유산을 문화재위원회에서 심사하여 별도로 국보로 지정한다.<br> <br><b>&lt;문화재는 번호의 순서보다 가치로 기억해주세요.&gt;</b></p>
+					</section>
+					<div>
+						<img src="images/treasure2.jpg" alt="국보 2호">
+						<img src="images/treasure3.jpg" alt="국보 3호">
+						<img src="images/treasure4.jpg" alt="국보 4호">
+						<img src="images/treasure5.jpg" alt="국보 5호">
+						<img src="images/treasure6.jpg" alt="국보 6호">
+					</div>
+				</div>	
 				<div id="sd3">
 				
 					<section id="gate4">
@@ -357,19 +407,19 @@
 						<div id="gatepop">
 							<div>
 								<img src="images/west_big.png" alt="서대문" class="g1">
-								<p>돈의문(敦義門)_서대문(투시도) <br>서울 4대문 중의 하나로, 1396년(태조 5년) 건립된 서울성곽 축조 당시 서쪽의 대문(西大門)의 정식 명칭이다. <br>임진왜란 때 불에 타 숙종 때인 1711년 다시 건립되었으나 일제강점기 당시 조선총독부에 의해 철거됐다.</p>
+								<p>&lt;돈의문(敦義門)_서대문(투시도)&lt; <br>서울 4대문 중의 하나로, 1396년(태조 5년) 건립된 서울성곽 축조 당시 서쪽의 대문(西大門)의 정식 명칭이다. <br>임진왜란 때 불에 타 숙종 때인 1711년 다시 건립되었으나 일제강점기 당시 조선총독부에 의해 철거됐다.</p>
 							</div>
 							<div>
 								<img src="images/north_big.png" alt="북대문" class="g2">
-								<p>숙정문(肅靖門)_북대문 <br>서울특별시 종로구 삼청동(三淸洞)의 북악산(北岳山) 동쪽 고갯마루에 있는 조선시대 성문. <br>사적으로 지정된 한양도성에 포함되어있다.</p>
+								<p>&lt;숙정문(肅靖門)_북대문 &gt;<br>서울특별시 종로구 삼청동(三淸洞)의 북악산(北岳山) 동쪽 고갯마루에 있는 조선시대 성문. <br>사적으로 지정된 한양도성에 포함되어있다.</p>
 							</div>
 							<div>
 								<img src="images/east_big.png" alt="동대문" class="g3">
-								<p>흥인지문(興仁之門)_동대문 <br>서울특별시 종로구에 있는 조선 시대의 성문이다.  <br>임금이 살고 있는 궁궐을 비롯하여 중요한 국가 시설이 몰려 있는 한양 도성(한성부)을 보호하기 위해 만들었다. 1963년에 보물로 지정되었다.</p>
+								<p>&lt;흥인지문(興仁之門)_동대문&gt; <br>서울특별시 종로구에 있는 조선 시대의 성문이다.  <br>임금이 살고 있는 궁궐을 비롯하여 중요한 국가 시설이 몰려 있는 한양 도성(한성부)을 보호하기 위해 만들었다. 1963년에 보물로 지정되었다.</p>
 							</div>
 							<div>
 								<img src="images/south_big.png" alt="남대문" class="g4">
-								<p>숭례문(崇禮門)_남대문 <br>서울특별시 중구 남대문로 4가에 있는 도성의 남쪽 정문.  <br>1962년 12월 20일 국보로 지정되었다.</p>
+								<p>&lt;숭례문(崇禮門)_남대문&gt; <br>서울특별시 중구 남대문로 4가에 있는 도성의 남쪽 정문.  <br>1962년 12월 20일 국보로 지정되었다.</p>
 							</div>
 						</div>
 					</section>
@@ -406,13 +456,13 @@
 							</div>
 							<img src="images/enjoy.png" alt="영문" class="enjoy">
 						</div>
+						<p><b>숭례문 관광과 함께 서울 도성주변을 관광하시면 더욱 즐기실 수 있습니다!</b><img src="images/bus.png" alt="버스" > </p>
 					</section>
-					
+					 
 				</div>
-				
 				<div id="floor">
 					<p>화요일 부터 일요일: 09:00 ~ 18:00 / 매주 월요일 휴무 <br>
-					주소: 서울특별시 중구 세종대로 40 <br>
+					주소: 서울특별시 중구 세종대로 40 &ensp;
 					전화: 02-779-8547</p>
 					<select onchange="if(this.value) {window.open(this.value)}">
 						<option value="#">다른 고궁 보러가기</option>
@@ -421,7 +471,9 @@
 						<option value="http://www.cdg.go.kr/">창덕궁</option>
 					</select>
 				</div>
+			
 			</main>
+				
 			
 			<div id= "first">
 				<img src="images/1page_pic1.jpg" alt="숭례문 야경" >
