@@ -96,21 +96,11 @@ $(document).ready(function(){
 			$(this).css("top","-710px"); //$("#kt5>div").fadeOut(500);
 			
 			}); }
-			//top:-455*/
+			//top:-455
 			
 				setInterval( upMove,3500);
 				let j = 0; //원형블릿
-				//let i = 5;//항목의 개수(<a>가 3개)
-				
-				/*function upMove(){
-						j--;
-						if( j == -1) {j = 5; }
-						$("#kt5>div:first-of-type").stop(false,true).animate({top:"-1060px"},1100, function(){
-								$(this).append($(this).children().first());
-								$(this).css("top","-710px"); 
-								$("#circle div").eq(j).addClass("gray").siblings().removeClass("gray");
-						});
-				}*/
+			
 				
 				function upMove(){
 						j++;
@@ -120,20 +110,63 @@ $(document).ready(function(){
 								$(this).css("top","-710px"); 
 								$("#circle div").eq(j).addClass("gray").siblings().removeClass("gray");
 						});
+				}*/
+				//원형 아이콘 클릭
+				$('#circle div').click(function(){
+					const slideX = $(this).index();
+					console.log(slideX);
+					slide(slideX);	
+					
+				});
+				//자동슬라이드		
+				
+				//setInterval( slideUp,3500);
+				let p = $("#circle div.gray").index();
+				let s = setInterval( slide, 2500, p+1);
+				//슬라이드
+				let m = 0;
+				const slideArea = $("#kt5>div:first-of-type");
+				function slide(z){
+					//console.log(z);
+					clearInterval(s);
+					$("#circle div").eq(z).addClass("gray").siblings().removeClass("gray");
+					switch(z){	
+						case 0:  m = 0; break;
+						case 1:  m = -357; break;
+						case 2:  m = -714;	break;
+						case 3:  m = -1071;	break;
+						case 4:  m = -1428;	break;	
+						case 5:  m = -1785;	break;
+						case 6:  m = -2142;	break;			
+					}
+					if (z >= 6) {
+						slideArea.stop().animate({top: m }, 1100, function(){
+								$(this).css("top","-357px");
+								p=1;
+								$("#circle div").eq(p).addClass("gray").siblings().removeClass("gray");
+								s = setInterval( slide, 2500,p+1);
+						});
+					}
+					
+					if (z <= 0) {
+						slideArea.stop().animate({top: m }, 1100, function(){
+								$(this).css("top","-1785px");
+								p=5;
+								$("#circle div").eq(p).addClass("gray").siblings().removeClass("gray");
+								s = setInterval( slide, 2500, p+1);
+						});
+					}		
+					if(z>=1 && z<=5) {
+						slideArea.stop().animate({top: m }, 1000, function(){
+								p = z;
+								$("#circle div").eq(p).addClass("gray").siblings().removeClass("gray");
+								s = setInterval( slide, 2500, p+1);
+						});	
+					}			
 				}
 				
-			$("#circle div").click( function(){
-			const x = $(this).children().attr("src");
-		
-			const z1 = $("#big img").attr("src");
-			const z2 = $("#big img").attr("alt");
-			
-			const z11 = x.replace("_small.", "_big.");
-			
-			$("#big img").attr("src", z11);
-			
-			});
 				
+			
 				
 			
 			
