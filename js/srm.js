@@ -90,12 +90,50 @@ $(document).ready(function(){
 			$(this).css("left","-1100px");
 			}); }
 			
-			setInterval(upMove,3500);
+			/*setInterval(upMove,3500);
 			function upMove(){
-			$("#kt5>div").stop().animate({top:"-355px"},1500 ,function(){$(this).prepend($(this).children().last());
-			$(this).css("top","-710px");
+			$("#kt5>div:first-of-type").stop().animate({top:"-355px"},1100 ,function(){$(this).prepend($(this).children().last()); 
+			$(this).css("top","-710px"); //$("#kt5>div").fadeOut(500);
+			
 			}); }
-			//top:-455
+			//top:-455*/
+			
+				setInterval( upMove,3500);
+				let j = 0; //원형블릿
+				//let i = 5;//항목의 개수(<a>가 3개)
+				
+				/*function upMove(){
+						j--;
+						if( j == -1) {j = 5; }
+						$("#kt5>div:first-of-type").stop(false,true).animate({top:"-1060px"},1100, function(){
+								$(this).append($(this).children().first());
+								$(this).css("top","-710px"); 
+								$("#circle div").eq(j).addClass("gray").siblings().removeClass("gray");
+						});
+				}*/
+				
+				function upMove(){
+						j++;
+						if( j == 5) {j = 0; }
+						$("#kt5>div:first-of-type").stop(false,true).animate({top:"-355px"},1100, function(){
+								$(this).prepend($(this).children().last());
+								$(this).css("top","-710px"); 
+								$("#circle div").eq(j).addClass("gray").siblings().removeClass("gray");
+						});
+				}
+				
+			$("#circle div").click( function(){
+			const x = $(this).children().attr("src");
+		
+			const z1 = $("#big img").attr("src");
+			const z2 = $("#big img").attr("alt");
+			
+			const z11 = x.replace("_small.", "_big.");
+			
+			$("#big img").attr("src", z11);
+			
+			});
+				
 				
 			
 			

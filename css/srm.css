@@ -42,7 +42,7 @@
 			#m2 h3::before{content:url("../images/bullet.png"); margin-right:10px;}
 			#m2 div {display:flex; position:absolute; left:-1900px;}
 			#m2 div p{padding:25px 135px 90px 100px; width:1900px; background:rgba(255,255,255,0.2);}
-			#m2 button{position:absolute; border:none; background:none;  }
+			#m2 button{position:absolute; border:none; background:none;}
 			#m2 button>img{}
 			#left	{right:160px; top:50px; text-shadow:2px 2px 2px rgba(0,0,0,0.6);}
 			#right{right:70px; top:50px; text-shadow:2px 2px 2px rgba(0,0,0,0.6); }
@@ -92,10 +92,23 @@
 			#kt5>section>h2::first-letter{font-size:32pt; color:#0c1e18;}
 			#kt5>section>p{color:white;}
 			#kt5>section b{font-size:24pt; color:#ffc554;}
-			#kt5>div{flex:0.7; height:1250px; position:absolute; top:-710px; left:1220px; }
-			#kt5>div>img{ width:594px;} /*높이 350*/
-			
-		
+			#kt5>div:first-of-type{flex:0.7; height:1250px; position:absolute; top:-710px; left:1220px; }
+			#kt5>div:first-of-type>img{ width:594px;} /*높이 350*/
+			#circle {
+						position:absolute;
+						right:50px; top:100px;
+						
+						align-items:flex-start;
+					}
+					#circle div { 
+						width:6px; height:25px;
+						border-radius:20px;
+						background:white;
+						margin:5px;
+					}
+					#circle div.gray {
+					background:#0e0e0e;}		
+							
 			#sd3{display:flex; padding:80px 50px 80px 80px; margin-right:10px; margin-bottom:90px;}
 		
 			#gate4 {flex:1; margin-right:85px; position:relative;}
@@ -103,7 +116,7 @@
 			#gate4 h3::before{content:url("images/bullet.png"); margin-right:10px;}
 			
 			#map{width:750px; height:576px; background:url("../images/seoulmap1.png"); margin-top:15px; position:relative;}
-			#map img{width:180px; position:absolute; box-shadow:5px 5px 3px rgba(0,0,0,0.7); transition:0.5s;}
+			#map img{width:180px; position:absolute; box-shadow:5px 5px 3px rgba(0,0,0,0.7); transition:0.5s; border-radius:5px;}
 			#map img:hover{transform:scale(1.4);}
 			.s1{top:230px; left:90px;}
 			.s2{top:50px; left:315px;}
@@ -126,7 +139,7 @@
 			#tour1 h3::before{content:url("../images/bullet.png"); margin-right:10px;}
 			
 			#tour1>p{background:url("../images/course.png") no-repeat center; height:90px; }
-			#tour1>p>b{position:absolute; font-size:19pt; top:66px; left:150px; background:white; padding:9px 19px 2px 19px; color:#333; font-family: 'Nanum Pen Script', cursive;}
+			#tour1>p>b{position:absolute; font-size:19pt; top:66px; left:150px; background:white; padding:9px 19px 2px 19px; color:#333; font-family: 'Nanum Pen Script', cursive; font-weight:normal;}
 			#tour1>p>img {position:absolute; top:687px; left:0px; animation:busGo 10s infinite linear; width:120px;}
 			@keyframes busGo{
 			0%{left:720px;}
