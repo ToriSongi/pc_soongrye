@@ -70,7 +70,7 @@ $(document).ready(function(){
 			$("#map>img").click(function(){
 				const mp=$(this).index();
 				$("#gatepop>div").eq(mp).children("img").fadeIn();
-				$("#gatepop>div").eq(mp).children("p").stop().animate({left:"10px"},"slow");
+				$("#gatepop>div").eq(mp).children("p").stop().animate({left:"40px"},"slow");
 				$("#map").css({"filter":" grayscale(100%) brightness(140%) opacity(0.4)"});
 				$("#map>img").prop("disabled", true);
 				
