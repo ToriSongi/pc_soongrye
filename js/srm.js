@@ -18,9 +18,9 @@ $(document).ready(function(){
 			let i=5;
 			function fading(){
 				i--;
-				if(i==0){$("#photo img").fadeIn(1500);
+				if(i==0){$("#photo img").fadeIn(1800);
 				i=5;}
-				else{$("#photo img").eq(i).fadeOut(1500);}
+				else{$("#photo img").eq(i).fadeOut(1800);}
 				
 			}
 
